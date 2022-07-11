@@ -1,31 +1,41 @@
 <template>
   <div id="app">
     <!-- <HelloWorld/> -->
-    <!-- <LoginForm />
-    <LoginFormNext/>
-    <CalculatorNew/> -->
+    <!-- <LoginForm/> -->
+    <!-- <LoginFormNext/> -->
+    <!-- <CalculatorNew/>  -->
     <!-- <ArrayNew/> -->
-    <PostProduct/>
+    <!-- <PostProduct/> -->
+    <!-- <TestFrom/> -->
+    <!-- <TestOne/> -->
+    <ToDoList/>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
 // import LoginForm from './components/LoginForm.vue';
+// import TestFrom from './components/TestFrom.vue';
 // import LoginFormNext from './components/LoginFormNext.vue';
 // import CalculatorNew from './components/CalculatorNew.vue'
-import PostProduct from './components/PostProduct.vue'
+// import PostProduct from './components/PostProduct.vue'
+// import TestOne from './components/TestOne.vue'
+import ToDoList from './components/bai3/ToDoList.vue'
+
 
 export default {
   name: 'App',
   components: {
+    // TestOne
     // HelloWorld,
-    PostProduct
-    // LoginForm,
+    // PostProductm,
+    // LoginForm
     // LoginFormNext,
     // CalculatorNew,
     // ArrayNew
-  },
+    // TestFrom
+    ToDoList
+},
   
 }
 

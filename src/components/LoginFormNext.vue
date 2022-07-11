@@ -1,25 +1,18 @@
 <template>
-   <div>
-         <div class="main">
-            <div class="form">
-               <form>
-                  <div class="form-control">
-                     <div class="header">Nhập tiêu đề</div>
-                     <input name="name" type="text" v-model="message" />
-                  </div>
-                  <div class="form-control">
-                     <div class="header" >Nhập nội dung</div>
-                     <textarea class="textarea" name="textarea" v-model="content" type="textarea" />
-                  </div>
-               </form>
-            </div>
-            <div class="title">
-                 <h3>{{ message }}</h3>
-                 <p v-html="content" ></p>
-             </div>
-            
-         </div>
-   </div>
+  <div class="container">
+    <div class="loginWrap">
+          <div class="inputWrap">
+        <div class="inputLabel" >Tên đăng nhập</div>
+        <input type="text" name="name" v-model="names">
+      </div>
+      <div class="inputWrap">
+        <div class="inputLabel">Mật khẩu</div>
+        <input type="password" name="password"  v-model="password" >
+      </div>
+      <button type="submit" @click="save()" class="loginButton">Đăng nhập</button>
+    </div>
+    
+  </div>
 </template>
 
 <script>
@@ -27,59 +20,82 @@ export default {
   name: 'LoginFormNext',
   data() {
     return {
-      message: '',
-      content: ''
+      names:'',
+      password: ''
+      
     }
+  },
+  methods: {
+       save: function (){
+        let data = {
+          names: this.names,
+          password: this.password
+        }
+         this.$emit('save', data);
+      }
   }
 }
 
 </script>
 
 <style scoped lang="scss" >
-.main {
-   display: flex;
-   justify-content: center;
-   gap: 50px;
-   .form {
-      padding: 31px 39px 53px 31px;
-      border: 1px solid;
-      background: #f5f5f5;
-      .form-control {
-         
-         .header {
-            text-align: initial;
-            font-weight: 700;
-            padding:10px 0;
-         }
-         input {
-            width: 250px;
-            padding: 6px 0px;
-         }
-         .textarea {
-           width: 247px;
-           height: 200px;
-         }
-      }
-      .button {
-         button {
-            padding: 10px 57px;
-            background-color: #1f9cff;
-            border: 0;
-            border-radius: 5px;
-            margin-top: 30px;
-         }
-      }
-     
-   }
-    .title {
-      border: 2px dashed black;
-      width: 311px;
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
 
-      // h3 {
-      //    display: flex;
-      //    align-items: center;
-      //    color: #00AAAA;
-      // }
-   }
-}
+    .loginWrap {
+      background: #f5f5f5;
+      border: 1px solid #6E6E6E;
+      padding: 24px;
+      height: 250px;
+      width: 500px;
+
+      .inputWrap {
+        margin-bottom: 12px;
+  
+        .inputLabel {
+          font-weight: bold;
+          margin-bottom: 8px;
+          text-align: left;
+        }
+    
+        input {
+          width: 292px;
+          height: 30px;
+        }
+      }
+  
+      button {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        margin-top: 20px;
+        background: #0080dd;
+        color: #fff;
+        border: unset;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    }
+
+    .infoWrap {
+      background: #fff;
+      border: 1px solid #6E6E6E;
+      padding: 24px;
+      height: 250px;
+      width: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 24px;
+
+      .infoLabel {
+        font-weight: bold;
+        color: #00AAAA;
+      }
+    }
+  }
 </style>

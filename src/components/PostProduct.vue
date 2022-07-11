@@ -162,14 +162,12 @@ export default {
                         this.carts.push(value)
                     }
                 } else {
-                    console.log('hihi')
                     value.quantityCart = 1;
                     this.carts.push(value)
                 }
             } else {
                 alert("Sản phẩm hết hàng")
             }
-            console.log(this.carts.length);
             for (let i = 0; i < this.carts.length; i++) {
                 this.totalMoney += this.carts[i].quantityCart * this.carts[i].price
             }
