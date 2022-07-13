@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <ProDuctIem/>
+    <NewsDetailPage/>
+    <!-- <BaseLayout/> -->
   </div>
 </template>
 
@@ -11,14 +12,15 @@
 // import LoginFormNext from './components/LoginFormNext.vue';
 // import CalculatorNew from './components/CalculatorNew.vue'
 // import PostProduct from './components/PostProduct.vue'
-// import TestOne from './components/TestOne.vue'
-import ProDuctIem from './components/bai3/ProDuctIem.vue'
+// import ContentPage from './components/Bai4.1/ContentPage.vue'
+import NewsDetailPage from './components/Bai4.2/NewsDetailPage.vue'
 
 
 export default {
   name: 'App',
   components: {
-    ProDuctIem
+    NewsDetailPage
+    // BaseLayout
 },
   
 }
@@ -32,6 +34,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
