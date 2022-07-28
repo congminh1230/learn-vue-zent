@@ -1,5 +1,5 @@
 <template>
-   <HomePage>
+   <AdminLayout>
         <template v-slot:headerTitle>
             <b>Quản lí sản phẩm</b>
         </template>
@@ -23,16 +23,16 @@
             </el-table-column>
             </el-table>
         </template>
-   </HomePage>
+   </AdminLayout>
 </template>
 <script>
-import HomePage from './HomePage.vue';
+import AdminLayout from './AdminLayout.vue';
 
 export default {
   name: 'ContentPage',
   components: {
-    HomePage
-  },
+    AdminLayout
+},
   data() {
    return {
     title:'Quản lí sản phẩm',

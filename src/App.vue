@@ -1,32 +1,17 @@
 <template>
   <div id="app">
-    <NewsDetailPage/>
-    <!-- <BaseLayout/> -->
+    <router-view/>
   </div>
 </template>
-
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
-// import LoginForm from './components/LoginForm.vue';
-// import TestBai1 from './components/bai4/TestBai1.vue';
-// import LoginFormNext from './components/LoginFormNext.vue';
-// import CalculatorNew from './components/CalculatorNew.vue'
-// import PostProduct from './components/PostProduct.vue'
-// import ContentPage from './components/Bai4.1/ContentPage.vue'
-import NewsDetailPage from './components/Bai4.2/NewsDetailPage.vue'
-
-
 export default {
-  name: 'App',
+  name:'App',
+  data() {
+  },
   components: {
-    NewsDetailPage
-    // BaseLayout
-},
-  
 }
-
+}
 </script>
-
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -34,5 +19,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

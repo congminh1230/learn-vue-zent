@@ -26,6 +26,7 @@ export default {
     },
     methods: {
         handleAddProduct(value) {
+            console.log(value);
             this.item = value
             this.product = ''
         },

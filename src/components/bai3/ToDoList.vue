@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div id="Test">
     <div class="container">
     <div class="row">
@@ -31,6 +31,7 @@ export default {
   },
   methods: {
      addItem() {
+            console.log( this.input)
             let item = {
                 isActive: 0,
                 work: this.input
