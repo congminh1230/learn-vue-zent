@@ -9,7 +9,7 @@
                 <th class="title-code">Trạng thái</th>
                 <th class="title-code">Hoạt động</th>
             </tr>
-            <tr v-for="(product, index) in drag" :key="index">
+            <tr v-for="(product, index) in products" :key="index">
                 <td class="product-text-left">{{ product.code }}</td>
                 <td class="product-text-left">{{ product.name }}</td>
                 <td class="product-text-left">
@@ -39,40 +39,35 @@
 </template>
 
 <script>
+import {mapState ,mapMutations} from 'vuex'
 export default {
     name: "ProductList",
-    props: ['item'],
-    data() {
-        return {
-            products: [],
-            drag: [],
-            start: 0,
-            end: 0,
-            presentPage: 1,
-        }
-    },
+    // data() {
+    //     return {
+    //         products: [],
+    //         drag: [],
+    //     }
+    // },
+    computed: {
+    ...mapState([
+      'name',
+      'price',
+      'quantity',
+      'drag',
+      'products',
+    ]),
+  },
     methods: {
+        ...mapMutations([
+      'updateName',
+      'updatePrice',
+      'updateQuantity',
+      'updateProducts',
+      'updateDrag',
+      'updateCodeProduct',
+    ]),
         destroyItem(value) {
-            this.products.splice(value, 1)
-            if (this.products.length > 0){
-                if (this.products.length < 6) {
-                    this.start = 1;
-                    this.end = this.products.length;
-                    this.drag = this.products.slice(this.start - 1, this.end)
-                } else {
-                    if (this.end > this.products.length) {
-                        this.end = this.products.length
-                        if (this.start > this.end) {
-                            this.start -= 5
-                            alert(this.start)
-                        }
-                        this.drag = this.products.slice(this.start - 1, this.end)
-                    }
-                }
-            } else {
-                this.start = this.end = 0
-                this.drag = []
-            }
+         this.products.splice(value, 1)
         },
         updateItem(value) {
             this.$emit('productItemUpdate', this.products[value])

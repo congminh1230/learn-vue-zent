@@ -55,6 +55,12 @@ const routes = [
     
   },
   {
+    path: '/cart2',
+    name: 'cart2',
+    component: () => import('../components/Bai7.2/ExerciseOne.vue')
+    
+  },
+  {
     path: '/test2',
     name: 'setting',
     component: () => import('../components/bai6/testVue2.vue')

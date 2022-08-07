@@ -12,31 +12,16 @@
 </template>
 
 <script>
-import ProductForm from '../Bai3.2/ProductFrom.vue'
-import ProductList from '../Bai3.2/ProductList.vue'
+import ProductForm from '../Bai7.2/ProductFrom.vue'
+import ProductList from '../Bai7.2/ProductList.vue'
 
 export default {
   name:'ExerciseOne',
-  data() {
-    return {
-      item:'',
-      product:''
-    }
-  },
+  
   components: {
     ProductForm,
     ProductList
   },
-  methods: {
-    handleAddProduct(value) {
-      console.log(value);
-      this.item = value
-      this.product = ''
-    },
-    handleFillProduct(value) {
-      this.product = value
-    }
-  }
   
 }
 </script>

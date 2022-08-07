@@ -3,7 +3,7 @@
         <h4>Sản phẩm</h4>
         <form action="">
             <div class="info">Tên sản phẩm <span class="error">(*)</span></div>
-            <el-input  placeholder="Please input" v-model="name"></el-input>
+            <el-input type="text"  placeholder="Please input" v-model="name"></el-input>
             
             <div class="info">Đơn giá <span class="error">(*)</span></div>
             <el-input  type="number" placeholder="Please input" v-model="price"></el-input>
@@ -18,32 +18,50 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
 export default {
     name: "ProductForm",
-    props: ['product'],
     data() {
         return {
-            name: '',
-            price: '',
-            quantity: '',
+            name:'',
+            price:'',
+            quantity:'',
             errorName: false,
             errorPrice: false,
             errorQuantity: false,
-            data: '',
             buttonName: 'Tạo mới'
         }
     },
+    computed: {
+    ...mapState([
+      'name',
+      'price',
+      'quantity',
+      'data',
+      'products',
+    ]),
+  },
     methods: {
+        ...mapMutations([
+      'updateName',
+      'updatePrice',
+      'updateQuantity',
+      'updateButtonName',
+      'updateData',
+      'updateProducts',
+      'updateCodeProduct'
+    ]),
         createProduct() {
             let codeItem = 'SP' + new Date().getTime();
-            (this.product !== '') ? codeItem = this.product.code : ''
-           this.data = {
+           let data = {
                 code: codeItem,
                 name: this.name,
                 price: this.price,
                 quantity: this.quantity,
            }
-           this.$emit('ExerciseOne',this.data)
+        //    this.$emit('ExerciseOne',this.data)
+        console.log(data  )
+        this.updateProducts(data)
             this.buttonName = 'Tạo mới'
                 this.name = this.price = this.quantity = ''
         },
