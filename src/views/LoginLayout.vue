@@ -4,6 +4,33 @@
     
     <div class="content">
       <img style="width: 100px;" src="../assets/logoflixgo.png"/>
+      <h2>Đăng ký</h2>
+    <el-form :model="email" ref="dynamicValidateForm" label-width="120px" class="demo-dynamic">
+  <el-form-item
+    prop="email"
+  >
+    <el-input placeholder="Email" v-model="emailRegister"></el-input>
+    <span class="span" >{{errorEmailRegister}}</span>
+  </el-form-item>
+  <el-form-item prop="pass">
+    <el-input type="password" v-model="passRegister" placeholder="Mật khẩu" autocomplete="off"></el-input>
+    <span class="span" >{{errorPassRegister}}</span>
+  </el-form-item>
+  <el-form-item prop="pass">
+    <el-input type="password" v-model="passRepeat" placeholder="Xác nhận mật khẩu" autocomplete="off"></el-input>
+    <span class="span" >{{errorPassRepeat}}</span>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" @click="submitRegister()">Đăng ký</el-button>
+  </el-form-item>
+</el-form>
+    </div>
+ </div>
+ <div class="loginLayout">
+    
+    <div class="content">
+      <img style="width: 100px;" src="../assets/logoflixgo.png"/>
+      <h2>Đăng nhập</h2>
     <el-form :model="email" ref="dynamicValidateForm" label-width="120px" class="demo-dynamic">
   <el-form-item
     prop="email"
@@ -36,6 +63,12 @@ export default {
         email:'',
         errorEmail:'',
         errorPassword:'',
+        passRepeat:'',
+        emailRegister:'',
+        errorEmailRegister:'',
+        errorPassRepeat:'',
+        errorPassRegister:'',
+        passRegister:'',
         dynamicValidateForm: {
           domains: [{
             key: 1,
@@ -51,8 +84,12 @@ export default {
             this.$router.push('/')
           }
       },
+      submitRegister() {
+          if(this.validateRegister()) {
+            this.$router.push('/login')
+          }
+      },
       validate() {
-        console.log(this.email)
           let error = false
            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
           if(!this.email.match(validRegex)) {
@@ -73,6 +110,35 @@ export default {
           }
           return !error
       },
+      validateRegister() {
+              let error = false 
+            var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(this.emailRegister.length == 0) {
+                error = true
+                this.errorEmailRegister = 'Email không được bỏ trống'
+            }else if(!this.emailRegister.match(validRegex)){
+                error = true
+                this.errorEmailRegister = 'Email không đúng định dạng'
+            }
+            if(this.passRegister.length == 0) {
+                error = true
+                this.errorPassRegister = 'Mật khẩu không được để trống'
+            }else if(this.passRegister.length < 7){
+                error = true
+                this.errorPassRegister = 'Mật khẩu không được nhỏ hơn 7 kí tự'
+            }
+            if(this.passRepeat.length == 0) {
+                error = true
+                this.errorPassRepeat = 'Mật khẩu không được để trống'
+            }
+            if( this.passRepeat.length > 0 && !(this.passRepeat == this.passRegister)) {
+                error = true
+                this.errorPassRepeat = 'Mật khẩu không trùng khớp'
+            }
+            
+            
+            return !error
+      }
       
     },
      watch: {
@@ -108,7 +174,7 @@ export default {
     line-height: 20px;
     color:#409EFF;
     width: 300px;
-    text-align: end;
+    text-align: initial;
 }
 .el-form-item__content {
     margin-left:0 !important ;
@@ -126,7 +192,8 @@ export default {
   width: 100%;
   height: 1000px;
     background-color:#409EFF;
-
+display: flex;
+    justify-content: space-around;
 }
 
 </style>

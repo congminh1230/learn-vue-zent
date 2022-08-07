@@ -55,8 +55,7 @@ export default {
           if(this.pass.length == 0) {
               error = true
               this.errorPassword = 'Mật khẩu không được bỏ trống'
-          }
-          if(this.pass.length < 7) {
+          }else if(this.pass.length < 7) {
               error = true
               this.errorPassword = 'Mật khẩu phải lớn hơn 8 kí tự'
           }

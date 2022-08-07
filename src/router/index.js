@@ -15,6 +15,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Product.vue')
   },
   {
+    path: '/profile',
+    name: 'profile',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ProfileHome.vue')
+  },
+  {
     path: '/order',
     name: 'order',
     component: () => import(/* webpackChunkName: "about" */ '../views/Order.vue')
@@ -38,9 +43,21 @@ const routes = [
     
   },
   {
-    path: '/setting',
+    path: '/test1/',
+    name: 'test1',
+    component: () => import('../components/bai6/testVue1.vue')
+    
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import('../components/Bai7.1/listCart.vue')
+    
+  },
+  {
+    path: '/test2',
     name: 'setting',
-    component: () => import('../views/Setting.vue')
+    component: () => import('../components/bai6/testVue2.vue')
     
   },
 

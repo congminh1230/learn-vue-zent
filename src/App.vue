@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <router-view/>
+    <!-- <router-view/> -->
+    <!-- <AdminLayout/> -->
+    <listCart/>
   </div>
 </template>
 <script>
+import listCart from './components/Bai7.1/listCart.vue';
 export default {
   name:'App',
   data() {
   },
   components: {
+    // AdminLayout
+    listCart
 }
 }
 </script>
