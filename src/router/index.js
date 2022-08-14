@@ -4,10 +4,20 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const routes = [
+  // {
+  //   path: '/',
+  //   name: 'home',
+  //   component: () => import('../components/bai8/testOne'),
+  // },
+  // {
+  //   path: '/api',
+  //   name: 'api',
+  //   component: () => import('../components/bai8/testOne'),
+  // },
   {
-    path: '/',
+    path: '/sfdsfs',
     name: 'home',
-    component: () => import('../views/AdminLayout.vue'),
+    component: () => import('../components/Bai4.1/HomePage.vue'),
   },
   {
     path: '/product',

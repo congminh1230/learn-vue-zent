@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import product from './modules/product/index'
+
+import order from './modules/order/index'
+
 
 Vue.use(Vuex)
 
@@ -11,50 +15,50 @@ const store = new Vuex.Store({
       { id: 1, text: 'task 1', done: true },
       { id: 2, text: 'task 2', done: false }
     ],
-    carts:[],
-  //   products: [
-  //     {
-  //         id: 1,
-  //         name: 'iPhone 12 Pro Max Chính Hãng',
-  //         image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
-  //         price: 32990000,
-  //         quantity: 566,
-  //     },
-  //     {
-  //         id: 2,
-  //         name: 'iPhone 12 Chính Hãng (VN/A)',
-  //         image: '',
-  //         price: 21790000,
-  //         quantity: 123,
-  //     },
-  //     {
-  //         id: 3,
-  //         name: 'iPhone 11 Chính hãng',
-  //         image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
-  //         price: 16690000,
-  //         quantity: 5,
-  //     },
-  //     {
-  //         id: 4,
-  //         name: 'Apple iPhone XR 64GB Chính hãng(VN/A)',
-  //         image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
-  //         price: 12190000,
-  //         quantity: 1023,
-  //     },
-  //     {
-  //         id: 5,
-  //         name: 'iPhone 11 Pro Max Chính hãng(VN/A)',
-  //         image: '',
-  //         price: 26500000,
-  //         quantity: 6,
-  //     }
-  // ],
+    // carts:[],
+//     products: [
+//       {
+//           id: 1,
+//           name: 'iPhone 12 Pro Max Chính Hãng',
+//           image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
+//           price: 32990000,
+//           quantity: 566,
+//       },
+//       {
+//           id: 2,
+//           name: 'iPhone 12 Chính Hãng (VN/A)',
+//           image: '',
+//           price: 21790000,
+//           quantity: 123,
+//       },
+//       {
+//           id: 3,
+//           name: 'iPhone 11 Chính hãng',
+//           image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
+//           price: 16690000,
+//           quantity: 5,
+//       },
+//       {
+//           id: 4,
+//           name: 'Apple iPhone XR 64GB Chính hãng(VN/A)',
+//           image: 'https://taimienphi.vn/tmp/cf/aut/anh-gai-xinh-1.jpg',
+//           price: 12190000,
+//           quantity: 1023,
+//       },
+//       {
+//           id: 5,
+//           name: 'iPhone 11 Pro Max Chính hãng(VN/A)',
+//           image: '',
+//           price: 26500000,
+//           quantity: 6,
+//       }
+//   ],
   totalMoney:'',
    name: '',
    price: '',
    quantity: '',
    data: '',
-   products: [],
+  //  products: [],
    drag: [],
   },
   getters: {
@@ -99,6 +103,10 @@ const store = new Vuex.Store({
         state.drag = value
     },
        
+  },
+  modules: {
+    product,
+    order
   }
 })
 

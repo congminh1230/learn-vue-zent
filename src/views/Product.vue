@@ -1,9 +1,10 @@
 <template>
-   <AdminLayout>
-        <template v-slot:headerTitle>
-            <b>Quản lí sản phẩm</b>
+        <div class="">
+            <template >
+            <b >{{title}}</b>
+            <button @click="Click" >click</button>
         </template>
-        <template v-slot:contentHome>
+        <template >
             <el-table
             :data="dataTable"
             style="width: 100%">
@@ -23,43 +24,31 @@
             </el-table-column>
             </el-table>
         </template>
-   </AdminLayout>
+        </div>
 </template>
 <script>
-import AdminLayout from './AdminLayout.vue';
+  import {mapState ,mapMutations} from 'vuex'
 
 export default {
-  name: 'ContentPage',
-  components: {
-    AdminLayout
-},
-  data() {
-   return {
-    title:'Quản lí sản phẩm',
-    dataTable: [
-       {
-           date: '2016-05-03',
-           name: 'Tom',
-           address: 'No. 189, Grove St, Los Angeles'
-       }, 
-       {
-           date: '2016-05-02',
-           name: 'Tom',
-           address: 'No. 189, Grove St, Los Angeles'
-       }, 
-       {
-           date: '2016-05-04',
-           name: 'Tom',
-           address: 'No. 189, Grove St, Los Angeles'
-       }, 
-       {
-           date: '2016-05-01',
-           name: 'Tom',
-           address: 'No. 189, Grove St, Los Angeles'
-       }
-            ],
-   }
-  }
+  name: 'ProductOne',
+    
+  computed: {
+        ...mapState(
+            'product',['dataTable','title'],
+            
+        ),
+
+    },
+     methods: {
+      ...mapMutations('product', [
+        'increase'
+      ]),
+       Click() {
+            this.increase('dsdsddadasdasd')
+        }
+    }
+    
+   
 }
 
 </script>

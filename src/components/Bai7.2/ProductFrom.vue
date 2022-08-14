@@ -52,7 +52,7 @@ export default {
       'updateCodeProduct'
     ]),
         createProduct() {
-            let codeItem = 'SP' + new Date().getTime();
+           let codeItem = 'SP' + new Date().getTime();
            let data = {
                 code: codeItem,
                 name: this.name,
@@ -68,6 +68,9 @@ export default {
         resetValue() {
             this.name = this.price = this.quantity = ''
             this.buttonName = 'Tạo mới'
+        },
+        validate() {
+            
         }
     },
     watch: {

@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <router-view/>
     <!-- <AdminLayout/> -->
     <!-- <listCart/> -->
+    <HomePage/>
   </div>
 </template>
 <script>
-// import listCart from './components/Bai7.1/listCart.vue';
+import HomePage from './components/bai8/testOne';
 export default {
   name:'App',
   data() {
@@ -14,6 +14,7 @@ export default {
   components: {
     // AdminLayout
     // listCart
+    HomePage
 }
 }
 </script>

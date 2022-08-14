@@ -6,15 +6,15 @@
                     active-text-color="#ffd04b">
                     <el-menu-item index="1">
                         <i class="el-icon-menu"></i>
-                        <span>Tổng quan</span>
+                        <span><router-link to="/" >Tổng quan</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="2">
                         <i class="el-icon-s-shop"></i>
-                        <span @click="hanld(1)" >Quản lý sản phẩm</span>
+                        <span><router-link to="product" >Quản lý sản phẩm</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="3">
                         <i class="el-icon-document"></i>
-                        <span>Quản lý hóa đơn</span>
+                        <span><router-link to="/order" >Quản lý hóa đơn</router-link></span>
                     </el-menu-item>
                     <el-menu-item index="4">
                         <i class="el-icon-s-data"></i>
@@ -67,7 +67,7 @@
                 </div>
             </el-header>
             <el-main>
-                 <slot name="contentHome"></slot>
+                <router-view/>
             </el-main>
         </el-container>
     </el-container>
